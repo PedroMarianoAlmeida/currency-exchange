@@ -6,7 +6,7 @@ import HeaderMobile from './header-mobile';
 const Header = function() {
     return(
         <div>
-            <nav class="navbar navbar-expand-lg fixed-top bg-dark">
+            <nav className="navbar navbar-expand-lg fixed-top bg-dark">
                <HeaderDesktop />
                <HeaderMobile />
             </nav>

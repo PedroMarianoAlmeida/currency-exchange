@@ -2,26 +2,26 @@ import React from 'react';
 
 const Footer = function() {
     return(
-        <footer class="fixed-bottom bg-dark w-100">
-            <div class="container">
-                <div class="row align-items-center">
+        <footer className="fixed-bottom bg-dark w-100">
+            <div className="container">
+                <div className="row align-items-center">
                     
-                    <div class="col-5 col-lg-8 text-left">
-                        <a class="text-left text-white mx-3" href="#">Social Midia</a>
+                    <div className="col-5 col-lg-8 text-left">
+                        <a className="text-left text-white mx-3" href="#">Social Midia</a>
                     </div>
 
-                    <div class="row">
+                    <div className="row">
 
-                        <div class="col-12 col-lg-4">
-                            <a class="m-1 text-white" href="#">Instagram</a>
+                        <div className="col-12 col-lg-4">
+                            <a className="m-1 text-white" href="#">Instagram</a>
                         </div>
 
-                        <div class="col-12 col-lg-4">
-                            <a class="m-1 text-white" href="#">Linkedin</a>
+                        <div className="col-12 col-lg-4">
+                            <a className="m-1 text-white" href="#">Linkedin</a>
                         </div>
 
-                        <div class="col-12 col-lg-4">
-                            <a class="m-1 text-white" href="#">GitHub</a>
+                        <div className="col-12 col-lg-4">
+                            <a className="m-1 text-white" href="#">GitHub</a>
                         </div>
 
                     </div>

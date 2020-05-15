@@ -10,7 +10,7 @@ class MainContent extends React.Component {
     render(){
         //declarar variáveis antes
         return(
-            <table class="table mt-5">
+            <table className="table mt-5">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
