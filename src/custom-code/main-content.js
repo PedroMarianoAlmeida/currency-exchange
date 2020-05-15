@@ -10,11 +10,16 @@ class MainContent extends React.Component {
     render(){
         //declarar variáveis antes
         return(
-            <table className="table mt-5">
+            <table className="table mt-5 w-75">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
+                        {/*Just example to see the Table*/}
                         <th scope="col">CUR-1</th>
+                        <th scope="col">CUR-2</th>
+                        <th scope="col">CUR-3</th>
+                        <th scope="col">CUR-4</th>
+                        <th scope="col">CUR-5</th>
                     </tr>
                 </thead>
 
@@ -24,6 +29,7 @@ class MainContent extends React.Component {
                             <CurrencyValue />
                             <UserInputCurrency /> 
                         </th>
+                        {/*Just example to see the Table*/}
                         <td>0.56</td>
                         <td>4.57</td>
                         <td>1.23</td>
