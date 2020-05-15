@@ -6,7 +6,7 @@ const Footer = function() {
             <div class="container">
                 <div class="row align-items-center">
                     
-                    <div class="col-6 col-lg-8 text-left">
+                    <div class="col-5 col-lg-8 text-left">
                         <a class="text-left text-white mx-3" href="#">Social Midia</a>
                     </div>
 
