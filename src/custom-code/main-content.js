@@ -1,4 +1,6 @@
 import React from 'react';
+import UserInputCurrency from './user-input-currency';
+import CurrencyValue from './user-input-currency-value';
 
 class MainContent extends React.Component {
     constructor(props){
@@ -18,7 +20,10 @@ class MainContent extends React.Component {
 
                 <tbody>
                     <tr>
-                        <th scope="row">Escolha moeda</th>
+                        <th scope="row"> 
+                            <CurrencyValue />
+                            <UserInputCurrency /> 
+                        </th>
                         <td>0.56</td>
                         <td>4.57</td>
                         <td>1.23</td>
