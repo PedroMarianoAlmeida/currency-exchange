@@ -12,10 +12,19 @@ class CurrencyColumns extends React.Component {
         this.state = {
             columns: columnOptions
         };
+        //this.updateColumns = this.updateColumns.bind(this);
     }
+
+    //Should be updated after NOTIFY runs in user-input-currency.js
+    //updateColumns(columnOptions){
+    //    this.setState({
+    //        columns: columnOptions
+    //    });
+    //}
+
     render(){
         return(
-            <th scope='col'>{columnOptions}</th>
+            <th scope='col'>{columnOptions /*Not finished*/}</th>          
         )
         
     }

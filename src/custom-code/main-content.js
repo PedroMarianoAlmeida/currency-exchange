@@ -15,12 +15,7 @@ class MainContent extends React.Component {
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        {/*Just example to see the Table*/}
                         <CurrencyColumns />
-                        <th scope="col">CUR-2</th>
-                        <th scope="col">CUR-3</th>
-                        <th scope="col">CUR-4</th>
-                        <th scope="col">CUR-5</th>
                     </tr>
                 </thead>
 
@@ -37,12 +32,9 @@ class MainContent extends React.Component {
                         <td>5.32</td>
                         <td>7.78</td>
                     </tr>
-
                 </tbody>
-
             </table>
         )
-
     }
 }
 
