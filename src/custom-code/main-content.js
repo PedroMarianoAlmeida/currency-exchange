@@ -27,7 +27,7 @@ class MainContent extends React.Component {
                     <tr>
                         <th scope="row"> 
                             <CurrencyValue />
-                            <UserInputCurrency /> 
+                            <UserInputCurrency/> 
                         </th>
                         {/*Just example to see the Table*/}
                         <td>0.56</td>
