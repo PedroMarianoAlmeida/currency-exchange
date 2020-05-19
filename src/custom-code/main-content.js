@@ -1,6 +1,7 @@
 import React from 'react';
 import UserInputCurrency from './user-input-currency';
 import CurrencyValue from './user-input-currency-value';
+import CurrencyColumns from './main-content-table-currency-columns'
 
 class MainContent extends React.Component {
     constructor(props){
@@ -15,7 +16,7 @@ class MainContent extends React.Component {
                     <tr>
                         <th scope="col">#</th>
                         {/*Just example to see the Table*/}
-                        <th scope="col">CUR-1</th>
+                        <CurrencyColumns />
                         <th scope="col">CUR-2</th>
                         <th scope="col">CUR-3</th>
                         <th scope="col">CUR-4</th>

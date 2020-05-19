@@ -1,7 +1,7 @@
 import React from 'react';
 import currencyNames from './data-currency';
 
-let currentValueVariable = 'USD';
+export let currentValueVariable = 'USD';
 class UserInputCurrency extends React.Component {
     constructor(props){
         super(props);
@@ -15,7 +15,7 @@ class UserInputCurrency extends React.Component {
         currentValueVariable = e.target.value;
         this.setState({
             currentValue: currentValueVariable
-        })      
+        })
     }
 
     render(){
