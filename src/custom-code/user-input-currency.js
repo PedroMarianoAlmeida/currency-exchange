@@ -17,6 +17,7 @@ class UserInputCurrency extends React.Component {
         this.setState({
             currentValue: currentValueVariable
         });
+        this.props.updateCurrentCurrency(currentValueVariable);
     }
 
     render(){

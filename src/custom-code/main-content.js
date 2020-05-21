@@ -1,11 +1,20 @@
 import React from 'react';
 import UserInputCurrency from './user-input-currency';
 import CurrencyValue from './user-input-currency-value';
-import CurrencyColumns from './main-content-table-currency-columns'
+import CurrencyColumns, {CurrencyColumns2} from './main-content-table-currency-columns'
 
 class MainContent extends React.Component {
     constructor(props){
         super(props);
+        this.state = {
+            currentCurrency: 'USD'
+        }
+    }
+
+    receiveInputUserData = (currency) => {
+        this.setState({
+            currentCurrency: currency
+        });
     }
 
     render(){
@@ -16,6 +25,8 @@ class MainContent extends React.Component {
                     <tr>
                         <th scope="col">#</th>
                         <CurrencyColumns />
+                        <CurrencyColumns2 />
+                        <th scop="col">{this.state.currentCurrency}</th>
                     </tr>
                 </thead>
 
@@ -23,7 +34,7 @@ class MainContent extends React.Component {
                     <tr>
                         <th scope="row"> 
                             <CurrencyValue />
-                            <UserInputCurrency/> 
+                            <UserInputCurrency updateCurrentCurrency={this.receiveInputUserData}/>                            
                         </th>
                         {/*Just example to see the Table*/}
                         <td>0.56</td>

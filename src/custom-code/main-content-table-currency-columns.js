@@ -1,10 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {currentValueVariable} from './user-input-currency';
 import currencyNames from './data-currency';
 
 let indexToRemove = currencyNames.indexOf(currentValueVariable);
 let columnOptions = [...currencyNames];
 columnOptions.splice(indexToRemove, 1);
+
+export function CurrencyColumns2(){
+    const [nameState, setNameState] = useState(currentValueVariable)
+
+    return(
+        <th scope='col'>{nameState /*Not finished*/}</th>
+    )
+}
 
 class CurrencyColumns extends React.Component {
     constructor(props) {
