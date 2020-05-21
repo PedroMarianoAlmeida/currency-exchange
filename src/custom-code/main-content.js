@@ -1,31 +1,34 @@
 import React from 'react';
 import UserInputCurrency from './user-input-currency';
 import CurrencyValue from './user-input-currency-value';
-import CurrencyColumns, {CurrencyColumns2} from './main-content-table-currency-columns'
+import CurrencyColumns from './main-content-table-currency-columns'
+import currencyNames from './data-currency';
 
 class MainContent extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            currentCurrency: 'USD'
+            currentCurrency: 'USD',
+            columnsCurrency: ['BRL', 'EUR', 'CAD', 'JPY', 'AUD']
         }
     }
 
     receiveInputUserData = (currency) => {
+        let indexToRemove = currencyNames.indexOf(currency);
+        let columnOptions = [...currencyNames];
+        columnOptions.splice(indexToRemove, 1);       
+        
         this.setState({
-            currentCurrency: currency
+            currentCurrency: currency,
+            columnsCurrency: columnOptions
         });
     }
 
     render(){
-        //declarar variáveis antes
         return(
             <table className="table mt-5 w-75">
                 <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <CurrencyColumns currency={this.state.currentCurrency}/>
-                    </tr>
+                        <CurrencyColumns currency={this.state.columnsCurrency}/>
                 </thead>
 
                 <tbody>
