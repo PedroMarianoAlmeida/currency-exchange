@@ -24,9 +24,7 @@ class MainContent extends React.Component {
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <CurrencyColumns />
-                        <CurrencyColumns2 />
-                        <th scop="col">{this.state.currentCurrency}</th>
+                        <CurrencyColumns currency={this.state.currentCurrency}/>
                     </tr>
                 </thead>
 
