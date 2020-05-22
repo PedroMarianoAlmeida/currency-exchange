@@ -9,23 +9,40 @@ class MainContent extends React.Component {
         super(props);
         this.state = {
             currentCurrency: 'USD',
-            columnsCurrency: ['BRL', 'EUR', 'CAD', 'JPY', 'AUD']
+            columnsCurrency: ['BRL', 'EUR', 'CAD', 'JPY', 'AUD'],
+            columnsRate: ['teste', 2, 3, 4, 5],
         }
     }
 
-    receiveInputUserData = (currency) => {
-        let indexToRemove = currencyNames.indexOf(currency);
+    newCollumnValues = function(currentyCurrency){
+        let indexToRemove = currencyNames.indexOf(currentyCurrency);
         let columnOptions = [...currencyNames];
-        columnOptions.splice(indexToRemove, 1);       
+        columnOptions.splice(indexToRemove, 1);
+        return columnOptions;
+    }
+
+    newRates = (currency, currenciesToRates) => {
+        let allRates = [];
         
+        fetch(`https://alt-exchange-rate.herokuapp.com/latest?base=${currency}`)
+        .then(response => response.json() )
+        .then( data => { 
+            currenciesToRates.map( name => allRates.push(data.rates[name]) );
+            console.log(allRates);
+            this.setState ({
+                columnsRate: allRates
+            });
+        });        
+    }
+
+    updateCurrentCurrency = (currency) => {    
+        const myCollumns = this.newCollumnValues(currency);
+        this.newRates(currency, myCollumns);
+
         this.setState({
             currentCurrency: currency,
-            columnsCurrency: columnOptions
+            columnsCurrency: myCollumns,
         });
-
-        fetch(`https://alt-exchange-rate.herokuapp.com/latest?base=${currency}`)
-            .then(response => response.json() )
-            .then( data => console.log(data));
     }
 
     render(){
@@ -39,14 +56,13 @@ class MainContent extends React.Component {
                     <tr>
                         <th scope="row"> 
                             <CurrencyValue />
-                            <UserInputCurrency updateCurrentCurrency={this.receiveInputUserData}/>                            
+                            <UserInputCurrency updateUserInputCurrency={this.updateCurrentCurrency}/>                            
                         </th>
-    
-                        
-                        <td>4.57</td>
-                        <td>1.23</td>
-                        <td>5.32</td>
-                        <td>7.78</td>
+                        <td>{this.state.columnsRate[0]}</td>                        
+                        <td>{this.state.columnsRate[1]}</td>
+                        <td>{this.state.columnsRate[2]}</td>  
+                        <td>{this.state.columnsRate[3]}</td>  
+                        <td>{this.state.columnsRate[4]}</td>    
                     </tr>
                 </tbody>
             </table>
