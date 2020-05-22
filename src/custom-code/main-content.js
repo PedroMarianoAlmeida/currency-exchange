@@ -22,6 +22,10 @@ class MainContent extends React.Component {
             currentCurrency: currency,
             columnsCurrency: columnOptions
         });
+
+        fetch(`https://alt-exchange-rate.herokuapp.com/latest?base=${currency}`)
+            .then(response => response.json() )
+            .then( data => console.log(data));
     }
 
     render(){
@@ -37,8 +41,8 @@ class MainContent extends React.Component {
                             <CurrencyValue />
                             <UserInputCurrency updateCurrentCurrency={this.receiveInputUserData}/>                            
                         </th>
-                        {/*Just example to see the Table*/}
-                        <td>0.56</td>
+    
+                        
                         <td>4.57</td>
                         <td>1.23</td>
                         <td>5.32</td>
