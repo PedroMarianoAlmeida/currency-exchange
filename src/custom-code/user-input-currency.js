@@ -1,18 +1,17 @@
 import React from 'react';
 import currencyNames from './data-currency';
 
-export let currentValueVariable = 'USD';
 class UserInputCurrency extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            currentValue: currentValueVariable
+            currentValue: 'USD'
         };
         this.handleChange = this.handleChange.bind(this);
     }
     
     handleChange(e){
-        currentValueVariable = e.target.value;
+        const currentValueVariable = e.target.value;
         this.setState({
             currentValue: currentValueVariable
         });
