@@ -83,6 +83,40 @@ class MainContent extends React.Component {
 
                 <div className="d-lg-none flex-grow-1"> {/*Mobile version*/}
                     <table className="table mt-5 w-75">
+                        <thead>
+                            <tr>
+                                <th scope='col'> <CurrencyValue updateUserInputNumber={this.updateUserInputNumber}/> </th>
+                                <th scope='col'> <UserInputCurrency updateUserInputCurrency={this.updateCurrentCurrency} /> </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope='row'>{this.state.columnsCurrency[0]}</th>
+                                <td>{(this.state.columnsRate[0] * this.state.currentNumber).toFixed(2)}</td>
+                            </tr>
+                            
+                            <tr>
+                                <th scope='row'>{this.state.columnsCurrency[1]}</th>
+                                <td>{(this.state.columnsRate[1] * this.state.currentNumber).toFixed(2)}</td>
+                            </tr>
+
+                            <tr>
+                                <th scope='row'>{this.state.columnsCurrency[2]}</th>
+                                <td>{(this.state.columnsRate[2] * this.state.currentNumber).toFixed(2)}</td>
+                            </tr>
+
+                            <tr>
+                                <th scope='row'>{this.state.columnsCurrency[3]}</th>
+                                <td>{(this.state.columnsRate[3] * this.state.currentNumber).toFixed(2)}</td>
+                            </tr>
+
+                            <tr>
+                                <th scope='row'>{this.state.columnsCurrency[4]}</th>
+                                <td>{(this.state.columnsRate[4] * this.state.currentNumber).toFixed(2)}</td>
+                            </tr>
+
+                        </tbody>
 
                     </table>
                 </div>
