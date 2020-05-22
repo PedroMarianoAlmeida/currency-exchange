@@ -58,25 +58,37 @@ class MainContent extends React.Component {
 
     render(){
         return(
-            <table className="table mt-5 w-75">
-                <thead>
-                        <CurrencyColumns currency={this.state.columnsCurrency}/>
-                </thead>
+            <div>
+                <div className='d-none d-lg-flex'> {/*Descktop version*/}
+                    <table className="table mt-5 w-75">
+                    <thead>
+                            <CurrencyColumns currency={this.state.columnsCurrency}/>
+                    </thead>
 
-                <tbody>
-                    <tr>
-                        <th scope="row"> 
-                            <CurrencyValue updateUserInputNumber={this.updateUserInputNumber}/>
-                            <UserInputCurrency updateUserInputCurrency={this.updateCurrentCurrency}/>                            
-                        </th>
-                        <td>{(this.state.columnsRate[0] * this.state.currentNumber).toFixed(2)}</td>                     
-                        <td>{(this.state.columnsRate[1] * this.state.currentNumber).toFixed(2)}</td> 
-                        <td>{(this.state.columnsRate[2] * this.state.currentNumber).toFixed(2)}</td> 
-                        <td>{(this.state.columnsRate[3] * this.state.currentNumber).toFixed(2)}</td> 
-                        <td>{(this.state.columnsRate[4] * this.state.currentNumber).toFixed(2)}</td> 
-                    </tr>
-                </tbody>
-            </table>
+                    <tbody>
+                        <tr>
+                            <th scope="row"> 
+                                <CurrencyValue updateUserInputNumber={this.updateUserInputNumber}/>
+                                <UserInputCurrency updateUserInputCurrency={this.updateCurrentCurrency}/>                            
+                            </th>
+                            <td>{(this.state.columnsRate[0] * this.state.currentNumber).toFixed(2)}</td>                     
+                            <td>{(this.state.columnsRate[1] * this.state.currentNumber).toFixed(2)}</td> 
+                            <td>{(this.state.columnsRate[2] * this.state.currentNumber).toFixed(2)}</td> 
+                            <td>{(this.state.columnsRate[3] * this.state.currentNumber).toFixed(2)}</td> 
+                            <td>{(this.state.columnsRate[4] * this.state.currentNumber).toFixed(2)}</td> 
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+
+                <div className="d-lg-none flex-grow-1"> {/*Mobile version*/}
+                    <table className="table mt-5 w-75">
+
+                    </table>
+                </div>
+
+            </div>
+            
         )
     }
 }
