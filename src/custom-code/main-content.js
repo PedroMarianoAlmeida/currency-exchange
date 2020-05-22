@@ -10,7 +10,8 @@ class MainContent extends React.Component {
         this.state = {
             currentCurrency: 'USD',
             columnsCurrency: ['BRL', 'EUR', 'CAD', 'JPY', 'AUD'],
-            columnsRate: ['teste', 2, 3, 4, 5],
+            columnsRate: [],
+            currentNumber: 1,
         }
     }
 
@@ -28,11 +29,14 @@ class MainContent extends React.Component {
         .then(response => response.json() )
         .then( data => { 
             currenciesToRates.map( name => allRates.push(data.rates[name]) );
-            console.log(allRates);
             this.setState ({
                 columnsRate: allRates
             });
         });        
+    }
+
+    componentDidMount(){ //First load of information
+        this.updateCurrentCurrency('USD');
     }
 
     updateCurrentCurrency = (currency) => {    
@@ -45,6 +49,13 @@ class MainContent extends React.Component {
         });
     }
 
+    updateUserInputNumber = (number) => {
+        this.setState({
+            currentNumber: number
+        });
+        console.log(number)
+    }
+
     render(){
         return(
             <table className="table mt-5 w-75">
@@ -55,14 +66,14 @@ class MainContent extends React.Component {
                 <tbody>
                     <tr>
                         <th scope="row"> 
-                            <CurrencyValue />
+                            <CurrencyValue updateUserInputNumber={this.updateUserInputNumber}/>
                             <UserInputCurrency updateUserInputCurrency={this.updateCurrentCurrency}/>                            
                         </th>
-                        <td>{this.state.columnsRate[0]}</td>                        
-                        <td>{this.state.columnsRate[1]}</td>
-                        <td>{this.state.columnsRate[2]}</td>  
-                        <td>{this.state.columnsRate[3]}</td>  
-                        <td>{this.state.columnsRate[4]}</td>    
+                        <td>{(this.state.columnsRate[0] * this.state.currentNumber).toFixed(2)}</td>                     
+                        <td>{(this.state.columnsRate[1] * this.state.currentNumber).toFixed(2)}</td> 
+                        <td>{(this.state.columnsRate[2] * this.state.currentNumber).toFixed(2)}</td> 
+                        <td>{(this.state.columnsRate[3] * this.state.currentNumber).toFixed(2)}</td> 
+                        <td>{(this.state.columnsRate[4] * this.state.currentNumber).toFixed(2)}</td> 
                     </tr>
                 </tbody>
             </table>
