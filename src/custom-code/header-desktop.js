@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 const HeaderDesktop = function() {
     return(
@@ -6,7 +7,7 @@ const HeaderDesktop = function() {
             <a className="navbar-brand text-white mx-3" href="#">Super Currency Converter</a>
 
             <div className="navbar-nav ml-auto align-items-center">
-                <a className="nav-item nav-link mx-1 text-white" href="#">Home</a>
+                <div className="nav-item nav-link mx-1 text-white"> <Link to="/"> Home </Link> </div>
                 <a className="nav-item nav-link mx-1 text-white" href="#">About</a>
                 <a className="nav-item nav-link mx-1 text-white" href="#">Ask a new Currency</a>
             </div>

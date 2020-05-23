@@ -6,19 +6,22 @@ import Header from './custom-code/header';
 import Footer from './custom-code/footer';
 import MainContent from './custom-code/main-content';
 import About from './custom-code/about';
+import NewCurrency from './custom-code/new-currency';
 
 function App() {
   document.title = "Currency Exchange";
   return (
     <div>
-      <Header />
+      
       <Router>
+        <Header />
         <Switch>
           <Route path="/" exact component={MainContent} />
           <Route path="/about" component={About} />
+          <Route path="/new-currency" component={NewCurrency} />
         </Switch> 
-      </Router>
-      <Footer />
+        <Footer />
+      </Router>      
     </div>
   );
 }
