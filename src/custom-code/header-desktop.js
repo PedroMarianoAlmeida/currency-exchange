@@ -7,9 +7,9 @@ const HeaderDesktop = function() {
             <a className="navbar-brand text-white mx-3" href="#">Super Currency Converter</a>
 
             <div className="navbar-nav ml-auto align-items-center">
-                <div className="nav-item nav-link mx-1 text-white"> <Link to="/"> Home </Link> </div>
-                <a className="nav-item nav-link mx-1 text-white" href="#">About</a>
-                <a className="nav-item nav-link mx-1 text-white" href="#">Ask a new Currency</a>
+                <Link to="/" className="nav-item nav-link mx-1 text-white"> Home </Link>
+                <Link to="/about" className="nav-item nav-link mx-1 text-white">About</Link>
+                <Link to="/new-currency" className="nav-item nav-link mx-1 text-white">Ask a new Currency</Link>
             </div>
         </div>      
     )
