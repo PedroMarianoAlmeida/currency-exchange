@@ -59,6 +59,7 @@ class MainContent extends React.Component {
     render(){
         return(
             <div>
+                <Header />
                 <div className='d-none d-lg-flex'> {/*Descktop version*/}
                     <table className="table mt-5 w-75">
                     <thead>
@@ -120,7 +121,7 @@ class MainContent extends React.Component {
 
                     </table>
                 </div>
-
+                <Footer />
             </div>
             
         )
