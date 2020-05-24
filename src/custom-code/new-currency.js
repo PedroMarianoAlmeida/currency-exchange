@@ -1,10 +1,19 @@
 import React from 'react';
 
 class NewCurrency extends React.Component {
-    
+    constructor(props) {
+        super(props);
+        this.state = {
+            currencyRecentAdded: false
+        };
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
 
     handleSubmit(e){
         e.preventDefault();
+        this.setState({
+            currencyRecentAdded: true
+        })
     }
     
     render(){
@@ -20,7 +29,10 @@ class NewCurrency extends React.Component {
                             <label className='d-block'> Your Email (opcional)</label>
                             <input type='email' className='form-control w-50 d-block mb-3' placeholder='E-mail' />
                             <br />
-                            <button type='submit' class='btn btn-dark'>Submit</button>
+                            <button type='submit' className='btn btn-dark mb-3'>Submit</button>
+                            <div className={this.state.currencyRecentAdded? '' : 'd-none'}>
+                                <p>Your request is been precessed, thanks!</p>
+                            </div>
                         </form>
                     </div>
                 </div>
