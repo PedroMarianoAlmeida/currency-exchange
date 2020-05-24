@@ -3,6 +3,7 @@ import UserInputCurrency from './user-input-currency';
 import CurrencyValue from './user-input-currency-value';
 import CurrencyColumns from './main-content-table-currency-columns'
 import currencyNames from './data-currency';
+import CurrencyValueColumn from './main-content-currency-value';
 
 class MainContent extends React.Component {
     constructor(props){
@@ -75,7 +76,7 @@ class MainContent extends React.Component {
                                     <UserInputCurrency updateUserInputCurrency={this.updateCurrentCurrency}/>                            
                                 </div>
                             </th>
-                            <td>{(this.state.columnsRate[0] * this.state.currentNumber).toFixed(2)}</td>                     
+                            <td> <CurrencyValueColumn number={(this.state.columnsRate[0] * this.state.currentNumber).toFixed(2)} updateUserInputNumber={this.updateUserInputNumber} rate={this.state.columnsRate[0]}/>  </td>                   
                             <td>{(this.state.columnsRate[1] * this.state.currentNumber).toFixed(2)}</td> 
                             <td>{(this.state.columnsRate[2] * this.state.currentNumber).toFixed(2)}</td> 
                             <td>{(this.state.columnsRate[3] * this.state.currentNumber).toFixed(2)}</td> 
