@@ -14,19 +14,22 @@ class CurrencyValueColumn extends React.Component {
         this.setState({
             number: e.target.value
         })
-        this.props.updateUserInputNumber(Number(e.target.value) / this.props.rate );
+        this.props.updateUserInputNumber(Number(e.target.value) / this.props.currencyRate );
     }
 
     componentDidMount(){
         this.setState({
             number: this.props.number,
         })
+        console.log(this.state.number)
     }
 
     render(){
         return(
-            <input type='number' min='0' step='0.01' className='text-center'
-            value={this.state.number} onChange={this.handleChange}></input>  
+            <div>
+                <input type='number' min='0' step='0.01' className='text-center d-block'
+                onChange={this.handleChange}></input>  
+            </div>
         )
     }
 }

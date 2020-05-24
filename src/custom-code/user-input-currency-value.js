@@ -17,12 +17,17 @@ class CurrencyValue extends React.Component {
         this.props.updateUserInputNumber(currentNumber);
     }
 
+    componentDidMount(){
+        this.setState({
+            currentNumber: this.props.currentNumber
+        })
+    }
+
     render(){
         return (
-            <div className='d-flex justify-content-center my-2'>
-                <input type='number' min='0' step='0.01' className='form-control w-25 text-center'
+            <input type='number' min='0' step='0.01' className='form-control d-inline w-25 h-100 text-center'
                  value={this.state.currentNumber} onChange={this.handleChange}></input>        
-            </div>
+
         )
     }
 

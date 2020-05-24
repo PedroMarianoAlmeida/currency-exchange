@@ -54,13 +54,12 @@ class MainContent extends React.Component {
         this.setState({
             currentNumber: number
         });
-        console.log(number)
     }
 
     render(){
         return(
             <div>
-                <div className='d-none d-lg-flex'> {/*Descktop version*/}
+                <div className='d-none'> {/*Descktop version*/}
                     <table className="table mt-5 w-75">
                     <thead>
                             <CurrencyColumns currency={this.state.columnsCurrency}/>
@@ -70,13 +69,13 @@ class MainContent extends React.Component {
                         <tr>
                             <th scope="row"> 
                                 <div>
-                                    <CurrencyValue updateUserInputNumber={this.updateUserInputNumber}/>
+                                    <CurrencyValue updateUserInputNumber={this.updateUserInputNumber} currentNumber={this.state.currentNumber}/>
                                 </div>
                                 <div className='d-flex justify-content-center'>
                                     <UserInputCurrency updateUserInputCurrency={this.updateCurrentCurrency}/>                            
                                 </div>
                             </th>
-                            <td> <CurrencyValueColumn number={(this.state.columnsRate[0] * this.state.currentNumber).toFixed(2)} updateUserInputNumber={this.updateUserInputNumber} rate={this.state.columnsRate[0]}/>  </td>                   
+                            <td> <CurrencyValueColumn number={this.state.columnsRate[0] * this.state.currentNumber} updateUserInputNumber={this.updateUserInputNumber} rate={this.state.columnsRate[0]}/>  </td>                   
                             <td>{(this.state.columnsRate[1] * this.state.currentNumber).toFixed(2)}</td> 
                             <td>{(this.state.columnsRate[2] * this.state.currentNumber).toFixed(2)}</td> 
                             <td>{(this.state.columnsRate[3] * this.state.currentNumber).toFixed(2)}</td> 
@@ -86,12 +85,20 @@ class MainContent extends React.Component {
                     </table>
                 </div>
 
-                <div className="d-lg-none flex-grow-1"> {/*Mobile version*/}
+                <div className="flex-grow-1"> {/*Mobile version*/}
                     <table className="table mt-5 w-75">
                         <thead>
                             <tr>
-                                <th scope='col'> <CurrencyValue updateUserInputNumber={this.updateUserInputNumber}/> </th>
-                                <th scope='col'> <UserInputCurrency updateUserInputCurrency={this.updateCurrentCurrency} /> </th>
+                                <th scope='col'>Currency</th>
+                                <th scope='col'>
+                                    <h6>Change Base</h6>
+                                    <CurrencyValue updateUserInputNumber={this.updateUserInputNumber}/>
+                                    <UserInputCurrency updateUserInputCurrency={this.updateCurrentCurrency} />
+                                </th>
+                                <th scope='col'>
+                                    <h6>Change Exchange Value</h6>
+                                    <div>{(Number(this.state.currentNumber)).toFixed(2)}</div>
+                                </th>
                             </tr>
                         </thead>
 
@@ -99,6 +106,7 @@ class MainContent extends React.Component {
                             <tr>
                                 <th scope='row'>{this.state.columnsCurrency[0]}</th>
                                 <td>{(this.state.columnsRate[0] * this.state.currentNumber).toFixed(2)}</td>
+                                <CurrencyValueColumn updateUserInputNumber={this.updateUserInputNumber} currencyRate={this.state.columnsRate[0]}/>
                             </tr>
                             
                             <tr>

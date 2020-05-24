@@ -21,7 +21,7 @@ class UserInputCurrency extends React.Component {
     render(){
         const nameElements = currencyNames.map( name => <option key={name}>{name}</option> );
         return (
-            <select onChange={this.handleChange} value={this.state.currentValue}>
+            <select onChange={this.handleChange} value={this.state.currentValue} className='h-100'>
                 {nameElements}    
             </select>
             )
