@@ -10,8 +10,8 @@ class MainContent extends React.Component {
         super(props);
         this.state = {
             currentCurrency: 'USD',
-            columnsCurrency: ['BRL', 'EUR', 'CAD', 'JPY', 'AUD'],
-            columnsRate: [0, 0, 0, 0, 0],
+            columnsCurrency: [],
+            columnsRate: [],
             currentNumber: 1,
         }
     }
@@ -23,14 +23,20 @@ class MainContent extends React.Component {
         return columnOptions;
     }
 
-    newRates = (currency, currenciesToRates) => {
-        let allRates = [];
-        
+    newRates = (currency, currenciesToRates) => {        
         fetch(`https://alt-exchange-rate.herokuapp.com/latest?base=${currency}`)
         .then(response => response.json() )
         .then( data => { 
+            const allCurrencies = [];
+            const allRates = [];
+            for(let [key, value] of Object.entries(data.rates)){
+                allCurrencies.push(key);
+                allRates.push(value);
+            }
+
             currenciesToRates.map( name => allRates.push(data.rates[name]) );
             this.setState ({
+                columnsCurrency: allCurrencies,
                 columnsRate: allRates
             });
         });        
@@ -93,7 +99,7 @@ class MainContent extends React.Component {
                                 <th scope='col'>
                                     <h6>Change Base</h6>
                                     <CurrencyValue updateUserInputNumber={this.updateUserInputNumber}/>
-                                    <UserInputCurrency updateUserInputCurrency={this.updateCurrentCurrency} />
+                                    <UserInputCurrency updateUserInputCurrency={this.updateCurrentCurrency}/>
                                 </th>
                                 <th scope='col'>
                                     <h6>Change Exchange Value</h6>
