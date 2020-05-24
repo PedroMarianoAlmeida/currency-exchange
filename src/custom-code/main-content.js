@@ -68,8 +68,12 @@ class MainContent extends React.Component {
                     <tbody>
                         <tr>
                             <th scope="row"> 
-                                <CurrencyValue updateUserInputNumber={this.updateUserInputNumber}/>
-                                <UserInputCurrency updateUserInputCurrency={this.updateCurrentCurrency}/>                            
+                                <div>
+                                    <CurrencyValue updateUserInputNumber={this.updateUserInputNumber}/>
+                                </div>
+                                <div className='d-flex justify-content-center'>
+                                    <UserInputCurrency updateUserInputCurrency={this.updateCurrentCurrency}/>                            
+                                </div>
                             </th>
                             <td>{(this.state.columnsRate[0] * this.state.currentNumber).toFixed(2)}</td>                     
                             <td>{(this.state.columnsRate[1] * this.state.currentNumber).toFixed(2)}</td> 
