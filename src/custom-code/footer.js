@@ -7,20 +7,20 @@ const Footer = function() {
                 <div className="row align-items-center">
                     
                     <div className="col-5 col-lg-8 text-left">
-                        <a className="text-left text-white mx-3" href="#">Social Midia</a>
+                        <a className="text-center text-white" href="#">Social Midia</a>
                     </div>
 
-                    <div className="row">
+                    <div className="row col-7 col-lg-4">
 
-                        <div className="col-12 col-lg-4">
+                        <div className="col-12 col-lg-4 d-flex justify-content-center">
                             <a className="m-1 text-white" href="#">Instagram</a>
                         </div>
 
-                        <div className="col-12 col-lg-4">
+                        <div className="col-12 col-lg-4 d-flex justify-content-center">
                             <a className="m-1 text-white" href="#">Linkedin</a>
                         </div>
 
-                        <div className="col-12 col-lg-4">
+                        <div className="col-12 col-lg-4 d-flex justify-content-center">
                             <a className="m-1 text-white" href="#">GitHub</a>
                         </div>
 
