@@ -10,7 +10,7 @@ class MainContent extends React.Component {
         this.state = {
             currentCurrency: 'USD',
             columnsCurrency: ['BRL', 'EUR', 'CAD', 'JPY', 'AUD'],
-            columnsRate: [],
+            columnsRate: [0, 0, 0, 0, 0],
             currentNumber: 1,
         }
     }
