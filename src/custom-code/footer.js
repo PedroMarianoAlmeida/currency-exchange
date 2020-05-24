@@ -13,15 +13,15 @@ const Footer = function() {
                     <div className="row col-7 col-lg-4">
 
                         <div className="col-12 col-lg-4 d-flex justify-content-center">
-                            <a className="m-1 text-white" href="#">Instagram</a>
+                            <a className="m-1 text-white" href="https://www.instagram.com/pedroprogrammer/" target='_blank'>Instagram</a>
                         </div>
 
                         <div className="col-12 col-lg-4 d-flex justify-content-center">
-                            <a className="m-1 text-white" href="#">Linkedin</a>
+                            <a className="m-1 text-white" href="https://www.linkedin.com/in/engenheiropedroalmeida/" target='_blank'>Linkedin</a>
                         </div>
 
                         <div className="col-12 col-lg-4 d-flex justify-content-center">
-                            <a className="m-1 text-white" href="#">GitHub</a>
+                            <a className="m-1 text-white" href="https://github.com/PedroMarianoAlmeida/" target='_blank'>GitHub</a>
                         </div>
 
                     </div>
