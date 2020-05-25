@@ -5,7 +5,7 @@ class UserInputCurrency extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            currentValue: 'USD'
+            currentValue: 'USD',
         };
         this.handleChange = this.handleChange.bind(this);
     }
