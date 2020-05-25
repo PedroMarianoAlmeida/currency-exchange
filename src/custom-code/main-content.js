@@ -10,7 +10,7 @@ class MainContent extends React.Component {
         super(props);
         this.state = {
             currentCurrency: 'USD',
-            columnsCurrency: ["AUD", "BGN", "BRL", "CAD", "CHF", "CNY", "CZK", "DKK", "GBP", "HKD", "HRK", "HUF", "IDR", "ILS", "INR", "ISK", "JPY", "KRW", "MXN", "MYR", "NOK", "NZD", "PHP", "PLN", "RON", "RUB", "SEK", "SGD", "THB", "TRY", "USD", "ZAR", "EUR"],
+            columnsCurrency: [],
             columnsRate: [],
             currentNumber: 1,
         }
@@ -63,6 +63,16 @@ class MainContent extends React.Component {
     }
 
     render(){
+        const cellsTableCurrency = this.state.columnsCurrency.map ( (currency, index) => {
+            return(
+                <tr>
+                    <th scope='row'>{currency}</th>
+                    <td className='text-center'> {(this.state.columnsRate[index] * this.state.currentNumber).toFixed(2)}</td>
+                    <CurrencyValueColumn updateUserInputNumber={this.updateUserInputNumber} currencyRate={this.state.columnsRate[index]}/>
+                </tr>
+            )
+        });
+        
         return(
             <div>
                 <div className='d-none'> {/*Descktop version*/}
@@ -96,7 +106,7 @@ class MainContent extends React.Component {
                         <thead>
                             <tr>
                                 <th scope='col'>Currency</th>
-                                <th scope='col'>
+                                <th scope='col' className='text-center'>
                                     <h6>Change Base</h6>
                                     <CurrencyValue updateUserInputNumber={this.updateUserInputNumber}/>
                                     <UserInputCurrency updateUserInputCurrency={this.updateCurrentCurrency} allCurrencies={this.state.columnsCurrency}/>
@@ -109,32 +119,7 @@ class MainContent extends React.Component {
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <th scope='row'>{this.state.columnsCurrency[0]}</th>
-                                <td>{(this.state.columnsRate[0] * this.state.currentNumber).toFixed(2)}</td>
-                                <CurrencyValueColumn updateUserInputNumber={this.updateUserInputNumber} currencyRate={this.state.columnsRate[0]}/>
-                            </tr>
-                            
-                            <tr>
-                                <th scope='row'>{this.state.columnsCurrency[1]}</th>
-                                <td>{(this.state.columnsRate[1] * this.state.currentNumber).toFixed(2)}</td>
-                            </tr>
-
-                            <tr>
-                                <th scope='row'>{this.state.columnsCurrency[2]}</th>
-                                <td>{(this.state.columnsRate[2] * this.state.currentNumber).toFixed(2)}</td>
-                            </tr>
-
-                            <tr>
-                                <th scope='row'>{this.state.columnsCurrency[3]}</th>
-                                <td>{(this.state.columnsRate[3] * this.state.currentNumber).toFixed(2)}</td>
-                            </tr>
-
-                            <tr>
-                                <th scope='row'>{this.state.columnsCurrency[4]}</th>
-                                <td>{(this.state.columnsRate[4] * this.state.currentNumber).toFixed(2)}</td>
-                            </tr>
-
+                            {cellsTableCurrency}
                         </tbody>
 
                     </table>
